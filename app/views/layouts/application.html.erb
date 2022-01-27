@@ -21,6 +21,29 @@
           <%= flash[:alert] %>
         </div>
     <% end %>
+
+    <nav class="global-nav">
+      <div class="container">
+        <div class="navigation">
+          <ul class="left-actions">
+            <li class="nav-item">
+              <%= link_to "ホーム", root_path, class: "nav-link" %>
+            </li>
+          </ul>
+          <ul class="right-actions">
+            <li class="nav-item">
+              <%= link_to "ツイート", "#", class: "btn btn-primary tweet-btn" %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+    <% end %>
+   
+      
     <%= yield %>
   </body>
 </html>

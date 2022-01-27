@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
-  devise_scope :user do
-    root to: 'users/sessions#new'
-end 
+  root to: 'home#index'
+  get 'tweets/new'
+  get 'tweets/create'
+  get 'tweets/index'
+  
+  #devise_scope :user do
+    #root to: 'devise/registrations#new'
+  #end 
   
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
   
+  resources :tweets, only: %i(new create)
 end
