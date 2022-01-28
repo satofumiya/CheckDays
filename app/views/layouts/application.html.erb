@@ -32,7 +32,7 @@
           </ul>
           <ul class="right-actions">
             <li class="nav-item">
-              <%= link_to "ツイート", "#", class: "btn btn-primary tweet-btn" %>
+              <%= link_to "ツイート", new_tweet_path, class: "btn btn-primary tweet-btn" %>
             </li>
           </ul>
         </div>
@@ -40,7 +40,7 @@
     </nav>
     
     <% if user_signed_in? %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% end %>
    
       
