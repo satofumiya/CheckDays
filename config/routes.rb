@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :tweets, only: %i(new create)
-  resources :goals, only: %i(new create)
+  resources :tweets, only: [:new, :create]
+  resources :goals, except: [:index]
 
   #devise_scope :user do
     #root to: 'devise/registrations#new'

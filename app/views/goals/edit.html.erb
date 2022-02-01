@@ -1,0 +1,5 @@
+<%= form_with model: @goal do |f| %>
+    <%= f.label :目標 %>
+    <%= f.text_field :text, class: 'form-control' %>
+    <%= f.submit "更新します" %>
+<% end %>

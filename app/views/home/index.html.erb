@@ -11,6 +11,9 @@
         <div class="tweet-text">
           <%= safe_join(goal.text.split("\n"), tag(:br)) %>
         </div>
+        <div class="goaleditlink">
+          <%= link_to  "目標を編集する", edit_goal_path(goal.id), class:"btn" %>
+        </div>
       </div>
     </div>
   </div>
