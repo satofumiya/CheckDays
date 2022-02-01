@@ -1,5 +1,22 @@
 <div class="tweet-card">
-  <% @tweets.each do |tweet| %>
+<% @goals.each do |goal| %>
+  <div class="card">
+    <div class="stream-item">
+      <div class="content">
+        <div class="stream-item-header">
+          <div class="time">
+            ・<%= time_ago_in_words(goal.created_at) %>
+          </div>
+        </div>
+        <div class="tweet-text">
+          <%= safe_join(goal.text.split("\n"), tag(:br)) %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>  
+
+<% @tweets.each do |tweet| %>
     <div class="card">
       <div class="stream-item">
         <div class="content">
