@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :users, only: [:show]
   resources :tweets, only: [:new, :create]
   resources :goals, except: [:index]
 
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
         sessions: 'users/sessions'
       }
+  resources :users, only: [:show]
   
   
 end
