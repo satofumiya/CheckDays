@@ -14,6 +14,11 @@
         <div class="goaleditlink">
           <%= link_to  "目標を編集する", edit_goal_path(goal.id), class:"btn" %>
         </div>
+        <div class="reachgoal?">
+          <% if goal.reachgoal %>
+            <%= "目標達成!" %>
+          <% end %> 
+        </div>
       </div>
     </div>
   </div>

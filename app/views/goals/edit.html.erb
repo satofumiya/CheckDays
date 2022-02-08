@@ -3,3 +3,9 @@
     <%= f.text_field :text, class: 'form-control' %>
     <%= f.submit "更新します" %>
 <% end %>
+
+<% if @goal.reachgoal %>
+    <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put %>
+<% else %>
+    <%= link_to '目標を達成しました', goal_path(@goal.id, goal: {reachgoal: true}), method: :put %>
+<% end %>

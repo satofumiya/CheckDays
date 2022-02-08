@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'home#index'
+  resources :users, only: [:show]
   resources :tweets, only: [:new, :create]
   resources :goals, except: [:index]
 
