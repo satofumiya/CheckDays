@@ -35,13 +35,24 @@
               <%= link_to "ツイート", new_tweet_path, class: "btn btn-primary tweet-btn" %>
             </li>
           </ul>
+          <% if user_signed_in? %>
+            <ul class="right-actions">
+              <li class="nav-item">
+                <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-primary tweet-btn" %>
+              </li>
+            </ul>
+            <ul class="right-actions">
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+              </li>
+            </ul> 
+          <% end %>
         </div>
       </div>
     </nav>
     
-    <% if user_signed_in? %>
-     <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-    <% end %>
+   
+     
    
       
     <%= yield %>
