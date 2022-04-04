@@ -21,30 +21,39 @@
           <%= flash[:alert] %>
         </div>
     <% end %>
-
-    <nav class="global-nav">
-      <div class="container">
-        <div class="navigation">
-          <ul class="left-actions">
-            <li class="nav-item">
-              <%= link_to "ホーム", root_path, class: "nav-link" %>
-            </li>
-          </ul>
-          <% if user_signed_in? %>
-            <ul class="right-actions">
-              <li class="nav-item">
-                <%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-primary tweet-btn" %>
-              </li>
-            </ul>
-            <ul class="right-actions">
-              <li class="nav-item">
-                <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-              </li>
-            </ul> 
-          <% end %>
-        </div>
+    
+    
+    <div class="d-flex container-fluid justify-content-between">
+      <div class="d-flex justify-content-start">
+        <%= image_tag "logo_middle.png", class: "img" %>
       </div>
-    </nav>
+
+      <div class="d-flex justify-content-end">
+        <nav class="global-nav d-flex container-fluid">
+            <div class="navigation  d-flex align-items-center">
+              <ul class="left-action">
+                <li class="nav-item">
+                  <%= link_to "ホーム", root_path%>
+                </li>
+              </ul>
+              
+              <% if user_signed_in? %>
+              <ul class="middle-action">
+                  <li class="nav-item">
+                    <%= link_to "プロフィール編集", edit_user_registration_path %>
+                  </li>
+              </ul>
+              <ul class="right-action">
+                  <li class="nav-item">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                  </li>
+              </ul>
+              <% end %>
+          </div>
+        </nav>
+      </div>
+
+    </div>
     
    
      
