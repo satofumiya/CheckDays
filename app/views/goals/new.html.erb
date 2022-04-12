@@ -1,4 +1,15 @@
-<%= form_with model: @goal do |f| %>
-    <%= f.text_area :text, placeholder: "今の目標は？", rows: "3" %>
-    <%= f.submit "保存する" %>
-<% end %>
+<div class="vh-100">
+    <div class="d-flex container flex-column bg-white h-75">
+        <%= form_with model: @goal , class:"d-flex flex-column m-5" do |f|%>
+            <div class="d-flex justify-content-end col-10 h-100">
+                <%= f.text_area :text, placeholder: "今の目標は？", class:"col-10 border"%>
+            </div>
+            <div class="d-flex justify-content-end col-10 my-5">
+                <%= f.submit "保存する", class:"btn btn-primary"%>
+            </div>
+            
+        <% end %>
+    </div>
+</div>
+
+    
