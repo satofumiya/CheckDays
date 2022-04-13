@@ -31,6 +31,12 @@ class GoalsController < ApplicationController
     end
   end
 
+  def destroy
+    goal = Goal.find(params[:id])
+    goal.destroy
+    redirect_to root_path
+  end
+  
   private
     def goal_params
       params.require(:goal).permit(:text, :reachgoal).merge(user_id: current_user.id)

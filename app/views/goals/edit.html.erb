@@ -11,7 +11,9 @@
                 <div class="d-flex justify-content-end my-2 col-10">
                     <%= f.submit "更新します", class:"btn btn-primary"%>
                 </div>
-
+                <div class="d-flex justify-content-end my-2 col-10">
+                    <%= link_to '目標を削除する', goal_path(@goal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-danger' %>
+                </div>
                 <div class="d-flex justify-content-end my-2 col-10">
                     <% if @goal.reachgoal %>
                         <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put, class:"btn btn-primary my-2" %>
