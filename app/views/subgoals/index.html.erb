@@ -1,1 +1,12 @@
-            <%= @goal.text %>
+            <h1><strong>「<%= @goal.text %>」</strong>  を達成するためのサブゴール一覧</h1>
+            <%= link_to "目標を追加する", new_goal_subgoal_path, class:"btn btn-primary m-3" %>
+
+        <% @subgoals.each do |subgoal| %>
+          <div class="stream-item">
+           <div class="content d-flex align-items-center">
+              <div class="goal-text my-4 mx-2 col-7 border-1 p-2">
+                <%= safe_join(subgoal.title.split("\n"), tag(:br)) %>  
+              </div>
+            </div>
+          </div>
+        <% end %>
