@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  resources :goals, except: [:index]
+  
+  resources :goals, except: [:index] do
+    resources :subgoals
+  end
 
   #devise_scope :user do
     #root to: 'devise/registrations#new'

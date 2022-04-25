@@ -7,11 +7,15 @@
         <% @goals.each do |goal| %>
           <div class="stream-item">
            <div class="content d-flex align-items-center">
-              <div class="goal-text my-4 mx-4 col-8 border-1 p-2">
+              <div class="goal-text my-4 mx-2 col-7 border-1 p-2">
                 <%= safe_join(goal.text.split("\n"), tag(:br)) %>
+                
               </div>
-              <div class="goaleditlink mx-4 col-2">
+              <div class="goaleditlink mx-2 col-2">
                 <%= link_to  "目標詳細画面へ", edit_goal_path(goal.id), class:"btn btn-primary" %>
+              </div>
+              <div class="goaleditlink mx-2 col-3">
+                <%= link_to  "サブゴール登録画面へ", goal_subgoals_path(goal.id), class:"btn btn-primary" %>
               </div>
               <div class="reachgoal?">
                 <% if goal.reachgoal %>

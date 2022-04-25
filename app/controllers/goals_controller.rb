@@ -1,7 +1,6 @@
 class GoalsController < ApplicationController
 
   
-
   def new
     @goal = Goal.new
   end
@@ -18,7 +17,7 @@ class GoalsController < ApplicationController
   end
   
   def edit
-    @goal = Goal.find_by(id: params[:id])
+    
   end
 
   def update

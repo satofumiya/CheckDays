@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_06_044352) do
+ActiveRecord::Schema.define(version: 2022_04_19_110940) do
 
   create_table "goals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.text "text"
@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 2022_02_06_044352) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "reachgoal", default: false, null: false
+  end
+
+  create_table "subgoals", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "goal_id", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["goal_id"], name: "index_subgoals_on_goal_id"
   end
 
   create_table "tweets", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -40,4 +48,5 @@ ActiveRecord::Schema.define(version: 2022_02_06_044352) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "subgoals", "goals"
 end
