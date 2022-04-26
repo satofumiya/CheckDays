@@ -5,6 +5,7 @@ class SubgoalsController < ApplicationController
   end
 
   def show
+    @subgoal = Subgoal.find_by(id: params[:id])
   end
 
   def new
@@ -13,6 +14,8 @@ class SubgoalsController < ApplicationController
   end
 
   def edit
+    @goal = Goal.find_by(id: params[:goal_id])
+    @subgoal = Subgoal.find_by(id: params[:id])
   end
 
   def create
@@ -20,17 +23,29 @@ class SubgoalsController < ApplicationController
     @subgoal = @goal.subgoals.new(subgoal_params)
     if @subgoal.save
       redirect_to goal_subgoals_path(@goal.id)
-      flash[:notice] = "目標を保存しました"
+      flash[:notice] = "サブゴールを保存しました"
     else
       render 'new'
-      flash[:alert] = "目標を保存できませんでした"
+      flash[:alert] = "サブゴールを保存できませんでした"
     end
   end
 
   def destroy
+    @goal = Goal.find_by(id: params[:goal_id])
+    subgoal = Subgoal.find_by(id: params[:id])
+    subgoal.destroy
+    redirect_to goal_subgoals_path(@goal.id)
   end
 
   def update
+    @goal = Goal.find_by(id: params[:goal_id])
+    @subgoal = Subgoal.find_by(id: params[:id])
+    if @subgoal.update(subgoal_params)
+      flash[:success] = "サブゴールをを更新しました"
+      redirect_to goal_subgoals_path(@goal.id)
+    else
+      render 'edit'
+    end
   end
 
   private
