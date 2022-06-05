@@ -17,6 +17,12 @@ class Users::SessionsController < Devise::SessionsController
    def destroy
      super
    end
+  #ゲストユーザー用のメソッドを作成する
+  def guest_sign_in
+    user = User.guest
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
 
   # protected
 
