@@ -10,6 +10,10 @@
 
 body {
     background-color: #e6e6e6;
+    
+}
+.goal-text{
+    font-size: large;
 }
 
 .header {
@@ -21,6 +25,10 @@ body {
     color: #000000;
 }
 
+.goal-index {
+    font-weight:bold;
+    text-decoration:underline;
+}
 .maincontent{
     height:60%;
 }
