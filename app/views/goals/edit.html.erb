@@ -9,16 +9,16 @@
         
             <div class="d-flex flex-column">
                 <div class="d-flex justify-content-end my-2 col-10">
-                    <%= f.submit "更新します", class:"btn btn-primary"%>
+                    <%= f.submit "更新します", class:"btn btn-outline-primary"%>
                 </div>
                 <div class="d-flex justify-content-end my-2 col-10">
-                    <%= link_to '目標を削除する', goal_path(@goal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-danger' %>
+                    <%= link_to '目標を削除する', goal_path(@goal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-outline-danger' %>
                </div>
                 <div class="d-flex justify-content-end my-2 col-10">
                     <% if @goal.reachgoal %>
-                        <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put, class:"btn btn-primary my-2" %>
+                        <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put, class:"btn btn-outline-primary my-2" %>
                     <% else %>
-                        <%= link_to '目標を達成しました', goal_path(@goal.id, goal: {reachgoal: true}), method: :put, class:"btn btn-primary my-2"%>
+                        <%= link_to '目標を達成しました', goal_path(@goal.id, goal: {reachgoal: true}), method: :put, class:"btn btn-outline-primary my-2"%>
                     <% end %>
                 </div>  
             </div>
