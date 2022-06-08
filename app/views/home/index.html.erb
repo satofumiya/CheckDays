@@ -1,8 +1,11 @@
 <div class="d-flex container vh-100">
     <div class="col-12 goalist h-50 bg-white">
       <div class="d-flex align-items-center justify-content-center border p-4">
-        <h1 class="display-6 m-3 col-8">達成したい目標</h1>
-        <%= link_to "目標を追加しましょう", new_goal_path, class:"btn btn-primary m-3 col-2" %>
+        <h1 class="display-6 col-8">目標一覧</h1>
+        <%= link_to new_goal_path, class:"btn btn-border goal-btn" do %>
+          <span class="btn-custom01-front">目標を決める！</span>
+          <i class="fas fa-angle-right fa-position-right"></i>
+        <% end %>
       </div>
 
       <div class="">
@@ -17,7 +20,7 @@
               </div>
               
               <div class="col-2">
-                <%= link_to  "目標の詳細管理へ", goal_subgoals_path(goal.id), class:"btn btn-primary" %>
+                <%= link_to  "目標の詳細管理へ", goal_subgoals_path(goal.id), class:"btn btn-outline-primary" %>
               </div>
               <div class="reachgoal?">
                 <% if goal.reachgoal %>
