@@ -15,5 +15,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   resources :users, only: [:show]
+
+  get '/users' => "home#index"
   
 end
