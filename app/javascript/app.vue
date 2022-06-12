@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <p v-if="task.done">{{ task.task }} : タスク完了</p>
-        <p v-else>{{ task.task }}</p>
-      </li>
-    </ul>
+    {{ message }}
   </div>
 </template>
 

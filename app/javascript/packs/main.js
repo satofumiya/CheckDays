@@ -14,7 +14,7 @@ Vue.use(Vuetify)
 
 const vuetify = new Vuetify();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
   const app = new Vue({
     vuetify,
     render: h => h(App)
