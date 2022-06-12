@@ -17,5 +17,9 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   get '/users' => "home#index"
+
+  namespace :api, format: 'json' do
+    resources :tasks, only: [:index]
+  end
   
 end

@@ -1,24 +1,34 @@
 <template>
   <div id="app">
-    <Header />
-    <p>{{ message }}</p>
-    <Top />
+    <ul>
+      <li v-for="task in tasks" :key="task.id">
+        <p v-if="task.done">{{ task.task }} : タスク完了</p>
+        <p v-else>{{ task.task }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import Header from "./components/header";
-import Top from "./components/top.vue";
+import axios from 'axios';
 
 export default {
   data: function () {
     return {
-      message: "Hello Vue!"
+      message: "Hello Vue!",
+      tasks: "tasks"
     }
   },
-  components: {
-    Top,
-    Header
+  mounted () {
+    this.setTask();
+  },
+  methods: {
+    setTask: function() {
+      axios.get('/api/tasks')
+      .then(response => (
+        this.tasks = response.data
+      ))
+    },
   }
 }
 
