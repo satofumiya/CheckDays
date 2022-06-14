@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
   root to: 'home#index'
-  
+
   resources :goals, except: [:index] do
-    resources :subgoals
+    resources :subgoals do
+      namespace :api, format: 'json' do
+        resources :tasks, only: [:index,:create]
+      end
+    end
   end
 
   devise_scope :user do
@@ -17,5 +21,5 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   get '/users' => "home#index"
-  
+
 end

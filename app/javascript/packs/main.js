@@ -9,12 +9,15 @@ import Vue from 'vue'
 import Vuetify from 'vuetify'
 import "vuetify/dist/vuetify.min.css"
 import App from '../app.vue'
+import TurbolinksAdapter from 'vue-turbolinks';
 
+Vue.use(TurbolinksAdapter);
 Vue.use(Vuetify)
 
 const vuetify = new Vuetify();
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('turbolinks:load', () => {
+  if (document.getElementById('vue-app')) {
   const app = new Vue({
     vuetify,
     render: h => h(App)
@@ -22,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.body.appendChild(app.$el)
 
   console.log(app)
+}
 })
 
 

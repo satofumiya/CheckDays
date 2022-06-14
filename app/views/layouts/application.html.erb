@@ -6,6 +6,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="turbolinks-cache-control" content="no-cache">
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
@@ -52,8 +54,12 @@
         </nav>
       </div>
     </div>
-
-
+    <div 
+      <% if content_for?(:body_attributes) %>  
+      <%= yield(:body_attributes) %>
+      <% end %>
+    >
     <%= yield %>
+    </div>
   </body>
 </html>

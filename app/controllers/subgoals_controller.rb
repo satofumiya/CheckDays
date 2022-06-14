@@ -16,6 +16,7 @@ class SubgoalsController < ApplicationController
   def edit
     @goal = Goal.find_by(id: params[:goal_id])
     @subgoal = Subgoal.find_by(id: params[:id])
+    @tasks = Task.where(subgoal_id: @subgoal.id)
   end
 
   def create
