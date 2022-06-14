@@ -1,1 +1,1 @@
-json.array! @tasks, :task, :done
+json.array! @tasks, :title, :done,:subgoal_id

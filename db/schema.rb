@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 2022_06_12_035920) do
   end
 
   create_table "tasks", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "task"
-    t.boolean "done"
+    t.string "title"
+    t.boolean "done", default: false
     t.integer "subgoal_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
