@@ -1,3 +1,3 @@
 class Task < ApplicationRecord
-    belongs_to :subgoal
+  belongs_to :subgoal
 end

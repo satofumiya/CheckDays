@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :task do
-    task { "MyString" }
+    task { 'MyString' }
     done { false }
     subgoal_id { 1 }
   end

@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-
   has_many :goals, dependent: :destroy
   has_many :tweets, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -15,5 +14,4 @@ class User < ApplicationRecord
       user.password = SecureRandom.urlsafe_base64
     end
   end
-  
 end

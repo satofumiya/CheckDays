@@ -4,15 +4,15 @@ Rails.application.routes.draw do
   resources :goals, except: [:index] do
     resources :subgoals do
       namespace :api, format: 'json' do
-        resources :tasks, only: [:index,:create]
+        resources :tasks, only: %i[index create destroy]
       end
     end
   end
 
   devise_scope :user do
     post '/users/guest_sign_in', to: 'users/sessions#guest_sign_in'
-  end 
-  
+  end
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
@@ -20,6 +20,5 @@ Rails.application.routes.draw do
   }
   resources :users, only: [:show]
 
-  get '/users' => "home#index"
-
+  get '/users' => 'home#index'
 end
