@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :subgoal do
     goal { nil }
-    title { "MyString" }
+    title { 'MyString' }
   end
 end
