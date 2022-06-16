@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :goals, except: [:index] do
     resources :subgoals do
       namespace :api, format: 'json' do
-        resources :tasks, only: %i[index create destroy]
+        resources :tasks, only: %i[index create destroy update]
       end
     end
   end
