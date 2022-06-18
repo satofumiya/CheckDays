@@ -7,11 +7,15 @@
 
     <ul>
       <li v-for="task in tasks" :key="task.id">
-        <p v-if="task.done">{{ task.title }} : タスク完了</p>
-        <p v-else-if="!task.done">{{ task.title }}</p>
+        <input type="checkbox" v-model="task.done" :checked="task.done">
+        <v-text-field v-model="task.title" v-if="!task.done"></v-text-field>
+        <p v-else><strike>{{ task.title }}</strike></p>
+
         <button @click='deleteTask(task.id)'>削除</button>
+        <button @click='updateTask(task.id)'>更新</button>
       </li>
     </ul>
+    <button @click="tasksUpdate()">全体更新</button>
   </div>
 </template>
 
@@ -28,6 +32,9 @@ export default {
   },
   mounted () {
     this.setTask();
+  },
+  beforeUnmount () {
+    tasksUpdate()
   },
   conputed: {
     nowUrl: function(){
@@ -56,7 +63,19 @@ export default {
       this.setTask()
     ));
     },
-    
+    taskDone: function(now,id){
+      if (now != false) now = true;
+      else now = false;
+      axios.patch('/'+this.currentUrl+'/api/tasks/'+id,{
+        done: now,
+      })
+    },
+    tasksUpdate: function(){
+      axios.put('/'+this.currentUrl+'/api/tasks',{
+        tasks: this.tasks
+      })
+    }
+
 }
 }
 </script>

@@ -50,7 +50,6 @@ class SubgoalsController < ApplicationController
   end
 
   private
-
   def subgoal_params
     params.require(:subgoal).permit(:title)
   end

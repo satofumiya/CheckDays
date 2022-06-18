@@ -19,9 +19,14 @@ class Api::TasksController < ApplicationController
     @task.destroy
   end
 
+  def update
+    @task = Task.find_by(id: params[:id])
+    @task.update(task_params)
+  end
+
   private
 
   def task_params
-    params.permit(:title, :subgoal_id)
+    params.permit(:title,:done, :subgoal_id,:task)
   end
 end
