@@ -52,5 +52,4 @@ production:
   <<: *default
   database: checkdays_production
   username: checkdays
-  password:
-  url: <%= ENV['mysql://b588e263000f36:747e25c2@us-cdbr-east-05.cleardb.net/heroku_a248c3fa2f8176f?reconnect=true']&.sub(/\Amysql/, 'mysql2') %>
+  password: <%= ENV['CHECKDAYS_DATABASE_PASSWORD'] %>
