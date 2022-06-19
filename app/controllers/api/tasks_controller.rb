@@ -2,7 +2,7 @@ class Api::TasksController < ApplicationController
   def index
     @goal = Goal.find_by(id: params[:goal_id])
     @subgoal = Subgoal.find_by(id: params[:subgoal_id])
-    @tasks = Task.where(subgoal_id: @subgoal.id)
+    @tasks = Task.where(subgoal_id: @subgoal.id).order("id DESC")
   end
 
   def create

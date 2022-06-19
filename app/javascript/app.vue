@@ -1,88 +1,129 @@
 <template>
-  <div id="app" class="bg-white">
-    <div>
-      <input v-model="title" placeholder="やること">
-      <button @click='addTask'>やることを追加する</button>
+  <v-app id="bg">
+    <div class="d-flex justify-content-center">
+      <div class="d-flex flex-column w-75 bg-white align-items-center">
+        <v-row class="mt-5 d-flex flex-wrap">
+          <v-col cols="12">
+            <span v-if="subgoal.title.length < 24" class="text-h4"
+              >「{{ subgoal.title }}」</span
+            >
+            <span v-else class="text-h5">「{{ subgoal.title }}」</span>
+            <h1 class="d-flex justify-end font-weight-bold">
+              を達成するためにやることを考えましょう。
+            </h1>
+          </v-col>
+        </v-row>
+        <v-container>
+          <v-row
+            cols="12"
+            class="d-flex flex-column justify-center align-center mt-3"
+          >
+            <v-col cols="8" class="d-flex justify-center mt-5">
+              <v-text-field v-model="title" placeholder="やること" solo
+            /></v-col>
+            <v-col cols="8" class="d-flex justify-end" flat>
+              <v-btn
+                @click="addTask"
+                color="blue"
+                class="white--text font-weight-black"
+                rounded
+                >やることを追加する</v-btn
+              >
+            </v-col>
+          </v-row>
+        </v-container>
+        <v-container>
+          <v-card class="d-flex" v-for="(task, index) in tasks" :key="task.id">
+            <v-row cols="10" class="d-flex justify-center">
+              <v-col cols="1" class="d-flex align-center justify-center">
+                <v-icon>fas fa-list</v-icon>
+              </v-col>
+              <v-col cols="1" class="d-flex align-center justify-center">
+                <v-checkbox
+                  @change="taskUpdate(index, task.id, 'done')"
+                  v-model="task.done"
+                />
+              </v-col>
+              <v-col cols="6">
+                <v-text-field
+                  full-width
+                  v-model="task.title"
+                  v-if="!task.done"
+                  @change="taskUpdate(index, task.id, 'title')"
+                ></v-text-field>
+                <p v-else class="my-3">
+                  <strike>{{ task.title }}</strike>
+                </p>
+              </v-col>
+
+              <v-col cols="2" class="d-flex align-center justify-center">
+                <v-btn @click="deleteTask(task.id)">削除</v-btn>
+              </v-col>
+            </v-row>
+          </v-card>
+        </v-container>
+      </div>
     </div>
-
-    <ul>
-      <li v-for="task in tasks" :key="task.id">
-        <input type="checkbox" v-model="task.done" :checked="task.done">
-        <v-text-field v-model="task.title" v-if="!task.done"></v-text-field>
-        <p v-else><strike>{{ task.title }}</strike></p>
-
-        <button @click='deleteTask(task.id)'>削除</button>
-        <button @click='updateTask(task.id)'>更新</button>
-      </li>
-    </ul>
-    <button @click="tasksUpdate()">全体更新</button>
-  </div>
+  </v-app>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
   data: function () {
     return {
       tasks: "tasks",
-      title:'',
-      currentUrl: window.location.href.split('/').splice(3,4).join('/'),
-    }
+      title: "",
+      subgoal: "",
+      currentUrl: window.location.href.split("/").splice(3, 4).join("/"),
+    };
   },
-  mounted () {
+  mounted() {
     this.setTask();
   },
-  beforeUnmount () {
-    tasksUpdate()
-  },
   conputed: {
-    nowUrl: function(){
-      this.currentUrl = window.location.href.split('/').splice(3,4).join('/')
-    }
+    nowUrl: function () {
+      this.currentUrl = window.location.href.split("/").splice(3, 4).join("/");
+    },
   },
   methods: {
-    setTask: function() {
-      axios.get('/'+this.currentUrl+'/api/tasks')
-      .then(response => (
-        this.tasks = response.data
-      ))
+    setTask: function () {
+      axios
+        .get("/" + this.currentUrl + "/api/tasks")
+        .then(
+          (response) => (
+            (this.subgoal = response.data[0]), (this.tasks = response.data[2])
+          )
+        );
     },
-    addTask: function() {
-      axios.post('/'+this.currentUrl+'/api/tasks',{
-        title: this.title,
-      })
-      .then(response => (
-        this.setTask(),
-        this.title = ''
-      ));
+    addTask: function () {
+      axios
+        .post("/" + this.currentUrl + "/api/tasks", {
+          title: this.title,
+        })
+        .then((response) => (this.setTask(), (this.title = "")));
     },
-    deleteTask: function(id){
-    axios.delete('/'+this.currentUrl+'/api/tasks/'+id)
-    .then(response => (
-      this.setTask()
-    ));
+    deleteTask: function (id) {
+      axios
+        .delete("/" + this.currentUrl + "/api/tasks/" + id)
+        .then((response) => this.setTask());
     },
-    taskDone: function(now,id){
-      if (now != false) now = true;
-      else now = false;
-      axios.patch('/'+this.currentUrl+'/api/tasks/'+id,{
-        done: now,
-      })
+    taskUpdate: function (index, id, key) {
+      axios.patch("/" + this.currentUrl + "/api/tasks/" + id, {
+        [key]: this.tasks[index][key],
+      });
     },
-    tasksUpdate: function(){
-      axios.put('/'+this.currentUrl+'/api/tasks',{
-        tasks: this.tasks
-      })
-    }
-
-}
-}
+  },
+};
 </script>
 
 <style scoped>
 p {
   font-size: 2em;
   text-align: center;
+}
+#bg {
+  background-color: #e6e6e6;
 }
 </style>
