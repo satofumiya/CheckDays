@@ -4,7 +4,7 @@
       <div class="d-flex flex-column w-75 bg-white align-items-center">
         <v-row class="mt-5 d-flex flex-wrap">
           <v-col cols="12">
-            <span v-if="subgoal.title.length < 24" class="text-h4"
+            <span v-if="subGoalLength < 24" class="text-h4"
               >「{{ subgoal.title }}」</span
             >
             <span v-else class="text-h5">「{{ subgoal.title }}」</span>
@@ -76,6 +76,7 @@ export default {
       tasks: "tasks",
       title: "",
       subgoal: "",
+      subGoalLength: "",
       currentUrl: window.location.href.split("/").splice(3, 4).join("/"),
     };
   },
@@ -93,7 +94,9 @@ export default {
         .get("/" + this.currentUrl + "/api/tasks")
         .then(
           (response) => (
-            (this.subgoal = response.data[0]), (this.tasks = response.data[2])
+            (this.subgoal = response.data[0]),
+            (this.tasks = response.data[2]),
+            (this.subGoalLength = response.data[0].title.length)
           )
         );
     },

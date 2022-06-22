@@ -1,4 +1,4 @@
-<div class="d-flex container vh-100">
+<div class="d-flex container h-100">
   <div class="col-12 goalist h-50 bg-white">
     <div class="d-flex align-items-center justify-content-center border p-4">
       <h1 class="display-6 col-8">目標一覧</h1>
@@ -11,19 +11,17 @@
       <% @goals.each_with_index do |goal, index| %>
         <div class="stream-item">
           <div class="d-flex align-items-center justify-content-center">
-            <div class="my-4 p-2 col-8">
+            <div class="my-4 p-2 col-8 d-flex">
               <h1 class="goal-text">
                 <span class="goal-index me-3 fs-3"><%= "第#{index+1}目標"%></span>
                 <span class="fs-4"><%= "・#{safe_join(goal.text.split("\n"), tag(:br))}"%></span>
               </h1>
-            </div>
-            <div class="col-2">
-              <%= link_to  "目標詳細へ", goal_subgoals_path(goal.id), class:"btn btn-outline-primary" %>
-            </div>
-            <div class="reachgoal?">
               <% if goal.reachgoal %>
-                <p class="fs-5 text-danger border rounded border-danger p-2">目標達成!</p>
+                <p class="fs-5 text-danger border rounded border-danger d-flex align-items-center p-1">目標達成!</p>
               <% end %>
+            </div>
+            <div class="col-3 d-flex">
+              <%= link_to  "目標詳細へ", goal_subgoals_path(goal.id), class:"btn btn-outline-primary" %>
             </div>
           </div>
         </div>

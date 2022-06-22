@@ -20,10 +20,13 @@ class GoalsController < ApplicationController
 
   def update
     @goal = Goal.find_by(id: params[:id])
-    if @goal.text == goal_params[:text]
+    if @goal.reachgoal == false
+      @goal.update(goal_params)
+      redirect_to root_path
+    elsif @goal.text == goal_params[:text]
       flash[:notice] = '目標が変わっていません。目標を変更してからボタンを押してください'
       redirect_to request.referer
-    elsif @goal.text != goal_params[:text] && @goal.update(goal_params)
+    else @goal.text != goal_params[:text] && @goal.update(goal_params)
       flash[:success] = '目標を更新しました'
       redirect_to request.referer
     end
