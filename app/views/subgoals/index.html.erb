@@ -6,7 +6,7 @@
         <div>
           <div class="d-flex justify-content-between align-items-center">
             <%= f.label :目標 , {id:'goal-title'}, class:'col-lg-3 col-2'%>
-            <div class="d-flex m-2 justify-content-center col-md-11 col-lg-8 justify-content-md-end">
+            <div class="d-flex m-2 justify-content-center col-md-11 col-lg-8 justify-content-lg-end">
               <%= f.submit "目標の変更", class:" btn btn-outline-primary"%>
               <%= link_to '目標を削除する', goal_path(@goal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-outline-danger mx-2' %>
               <% if @goal.reachgoal %>
@@ -23,7 +23,7 @@
       <div class="col-12 border-1 mt-5">
         <div class="d-flex align-items-center flex-wrap col-12 my-2 justify-content-end">
           <div class="d-flex flex-wrap col-lg-9 col-12 align-items-center justify-content-lg-start justify-content-center" id="subgoal-title">
-            <h1 class="me-lg-5 me-md-0">「<%= @goal.text %>」</h1>
+            <h1 class="me-xl-5 me-md-0">「<%= @goal.text %>」</h1>
             <h2 class="ms-5 ms-md-0">を達成するためのサブゴールの一覧</h2>
           </div>
           <%= link_to "サブゴール追加", new_goal_subgoal_path, id:"newsubgoalbtn",class:"col-lg-2 col-3 btn btn-outline-primary m-3" %>
