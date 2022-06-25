@@ -1,5 +1,6 @@
 <!-- 目標を管理するところ-->
 <div class="container">
+<<<<<<< Updated upstream
   <div class="vh-100 bg-white d-flex flex-column align-items-center">
         <%= form_with model: @goal, class:"mt-5 col-10 " do |f|%>
           <div class="d-flex flex-column justify-content-center">
@@ -15,6 +16,22 @@
                         <%= link_to '目標達成！', goal_path(@goal.id, goal: {reachgoal: true}), method: :put, class:"btn btn-outline-primary ml-2"%>
                     <% end %>
                 </div>
+=======
+  <div class="h-100 bg-white d-flex flex-column align-items-center pb-5">
+    <%= form_with model: @goal, class:"mt-5 col-10 " do |f|%>
+      <div class="d-flex flex-column justify-content-center">
+        <div>
+          <div class="d-flex justify-content-between align-items-center">
+            <%= f.label :目標 , {id:'goal-title'}, class:'col-lg-3 col-2'%>
+            <div class="d-flex m-2 justify-content-center col-sm-11 col-md-8 justify-content-md-end">
+              <%= f.submit "目標の変更", class:" btn btn-outline-primary"%>
+              <%= link_to '目標を削除する', goal_path(@goal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-outline-danger mx-2' %>
+              <% if @goal.reachgoal %>
+                <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put, class:"btn btn-outline-primary" %>
+              <% else %>
+                <%= link_to '目標達成！', goal_path(@goal.id, goal: {reachgoal: true}), method: :put, class:"btn btn-outline-primary"%>
+              <% end %>
+>>>>>>> Stashed changes
             </div>
             <%= f.text_field :text, class: 'form-control form-control-lg'%>
           </div>
@@ -22,19 +39,35 @@
         <% end %>
         <!-- サブゴールのを管理するところ　-->
       <div class="col-12 border-1 mt-5">
+<<<<<<< Updated upstream
         <div class="d-flex align-items-center col-12 my-2">
           <h1 class="ms-5 col-8"><strong>「<%= @goal.text %>」</strong>  を達成するためのサブゴールの一覧</h1>
           <%= link_to "サブゴールを追加する", new_goal_subgoal_path, class:"btn btn-outline-primary m-3" %>
+=======
+        <div class="d-flex align-items-center flex-wrap col-12 my-2 justify-content-end">
+          <div class="d-flex flex-wrap col-lg-9 col-12 align-items-center justify-content-lg-start justify-content-center" id="subgoal-title">
+            <h1 class="me-xl-5 me-md-0">「<%= @goal.text %>」</h1>
+            <h2 class="ms-5 ms-md-0">を達成するためのサブゴールの一覧</h2>
+          </div>
+          <%= link_to "サブゴール追加", new_goal_subgoal_path, id:"newsubgoalbtn",class:"col-lg-2 col-3 btn btn-outline-primary m-3" %>
+>>>>>>> Stashed changes
         </div>
         <% @subgoals.each_with_index do |subgoal,index| %>
           <div class="stream-item">
            <div class="d-flex align-items-center">
               
             <div class="goal-text my-3 col-12">
+<<<<<<< Updated upstream
                 <%= form_with model: [@goal,subgoal], class:"" do |sub|%>
                   <div class="d-flex justify-content-center align-items-center">
                     <%= index+1 %>
                     <div class="col-7 mx-4">
+=======
+              <%= form_with model: [@goal,subgoal], class:"" do |sub|%>
+                <div class="d-flex flex-wrap justify-content-lg-center justify-content-end align-items-center me-sm-5 me-md-0 ">
+                  <h1 class="me-1 me-sm-0"><%= index+1 %></h1>
+                  <div class="col-10 mx-md-4 me-3 col-xl-8 col-lg-6">
+>>>>>>> Stashed changes
                     <%= sub.text_field :title, class: 'form-control'%>
                     </div>
                     <%= sub.submit "更新", class:"btn btn-outline-primary"%>

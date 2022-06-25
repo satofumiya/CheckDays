@@ -9,16 +9,26 @@
 }
 
 body {
+<<<<<<< Updated upstream
     background-color: #e6e6e6;
     
 }
 .goal-text{
     font-size: large;
+=======
+  background-color: #e6e6e6;
+>>>>>>> Stashed changes
 }
 
+<<<<<<< Updated upstream
 .header {
     background-color: #ffffff;
     margin-bottom:30px;
+=======
+header {
+  background-color: #ffffff;
+  margin-bottom: 30px;
+>>>>>>> Stashed changes
 }
 
 .link {	
@@ -40,6 +50,7 @@ body {
   box-sizing: inherit;
 }
 
+<<<<<<< Updated upstream
 html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -47,6 +58,12 @@ html {
 
 
 /* ボタンcss基本スタイル  */
+=======
+#nav_for_Hamburger {
+  display: none;
+}
+
+>>>>>>> Stashed changes
 .btn,
 a.btn,
 button.btn {

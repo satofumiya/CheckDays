@@ -1,3 +1,90 @@
 // Place all the styles related to the Subgoals controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+<<<<<<< Updated upstream
+=======
+.subgoals {
+    #goal-title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+    #subgoal-title {
+        font-size: 1rem;
+        font-weight: bold;
+    }
+
+
+
+    @media screen and (max-width: 1024px) {
+        .subgoal-title {
+            font-size: 0.8rem;
+        }
+
+        #newsubgoalbtn {
+            font-size: 0.8rem;
+        }
+
+        .btn {
+            font-size: 0.8rem;
+        }
+
+        a.btn {
+            font-size: 0.8rem;
+        }
+
+        h2 {
+            font-size: 0.8rem;
+        }
+
+        .form-control {
+            font-size: x-small;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        .subgoal-title {
+            font-size: 0.5rem;
+        }
+
+        #newsubgoalbtn {
+            font-size: 0.5rem;
+        }
+
+        .btn {
+            font-size: 0.5rem;
+        }
+
+        a.btn {
+            font-size: 0.5rem;
+        }
+
+        h2 {
+            font-size: 0.5rem;
+        }
+    }
+
+    @media screen and (max-width:425px) {
+        #subgoal-title {
+            font-size: 0.8rem;
+        }
+
+        #newsubgoalbtn {
+            font-size: 0.5rem;
+        }
+
+        .btn {
+            font-size: 0.5rem;
+            padding: 0.2rem 0.1rem;
+        }
+
+        a.btn {
+            font-size: 0.5rem;
+        }
+
+        h2 {
+            font-size: 0.5rem;
+        }
+    }
+}
+>>>>>>> Stashed changes

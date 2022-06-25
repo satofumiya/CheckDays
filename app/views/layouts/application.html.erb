@@ -8,10 +8,12 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'header' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
   </head>
+<<<<<<< Updated upstream
 
   <body>
     <% if flash[:notice] %>
@@ -39,6 +41,34 @@
                   <%= link_to "ホーム", root_path, class:'link' %>
                 </li>
 
+=======
+  <body class='<%= controller.controller_name %>'>
+    <header class="container-fluid sticky-top">
+      <% if flash[:notice] %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+      <% if flash[:alert] %>
+        <div class="alert alert-danger">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <div class="header d-flex container-fluid justify-content-between flex-wrap">
+        <div class="d-flex justify-content-start">
+          <%= image_tag "logo_middle.png", class: "img" %>
+        </div>
+        <div class="d-flex justify-content-end">
+          <nav class="global-nav navbar navbar-expand-md d-flex container-fluid align-items-center">
+            <button class="navbar-toggle d-block d-md-none">
+              <i class="fas fa-bars" onclick="clickBtn1()" id="toggle-btn"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="d-flex">
+                <li class="nav-item mx-1">
+                  <%= link_to "目標一覧へ", root_path, class:'link' %>
+                </li>
+>>>>>>> Stashed changes
                 <% if user_signed_in? %>
                   <li class="nav-item mx-1">
                     <%= link_to "プロフィール編集", edit_user_registration_path, class:'link'%>
@@ -49,6 +79,7 @@
                 <% end %>
               </ul>
             </div>
+<<<<<<< Updated upstream
         </nav>
       </div>
     </div>
@@ -57,3 +88,32 @@
     <%= yield %>
   </body>
 </html>
+=======
+            <div class="col-12 d-md-none" id="nav_for_Hamburger">
+              <ul class="d-flex flex-wrap">
+                <li class="nav-item mx-1 mt-3 col-12">
+                  <%= link_to "目標一覧へ", root_path, class:'link' %>
+                </li>
+                <% if user_signed_in? %>
+                  <li class="nav-item mx-1 my-3 col-12">
+                    <%= link_to "プロフィール編集", edit_user_registration_path, class:'link'%>
+                  </li>
+                  <li class="nav-item mx-1 col-12">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'link' %>
+                  </li>
+                <% end %>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+      <div class="maincontent"
+      <% if content_for?(:body_attributes) %>
+      <%= yield(:body_attributes) %>
+      <% end %>
+    >
+        <%= yield %>
+      </div>
+    </body>
+  </html>
+>>>>>>> Stashed changes
