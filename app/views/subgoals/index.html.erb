@@ -4,15 +4,15 @@
     <%= form_with model: @goal, class:"mt-5 col-10 " do |f|%>
       <div class="d-flex flex-column justify-content-center">
         <div>
-          <div class="d-flex justify-content-between">
-            <%= f.label :目標 , class: 'display-6'%>
-            <div class="d-flex m-2">
-              <%= f.submit "目標の変更", class:"btn btn-outline-primary"%>
+          <div class="d-flex justify-content-between align-items-center">
+            <%= f.label :目標 , {id:'goal-title'}, class:'col-lg-3 col-2'%>
+            <div class="d-flex m-2 justify-content-center col-md-11 col-lg-8 justify-content-md-end">
+              <%= f.submit "目標の変更", class:" btn btn-outline-primary"%>
               <%= link_to '目標を削除する', goal_path(@goal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-outline-danger mx-2' %>
               <% if @goal.reachgoal %>
-                <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put, class:"btn btn-outline-primary mx-2" %>
+                <%= link_to '目標挑戦中に戻す', goal_path(@goal.id, goal: {reachgoal: false}), method: :put, class:"btn btn-outline-primary" %>
               <% else %>
-                <%= link_to '目標達成！', goal_path(@goal.id, goal: {reachgoal: true}), method: :put, class:"btn btn-outline-primary ml-2"%>
+                <%= link_to '目標達成！', goal_path(@goal.id, goal: {reachgoal: true}), method: :put, class:"btn btn-outline-primary"%>
               <% end %>
             </div>
           </div>
@@ -21,28 +21,29 @@
       <% end %>
       <!-- サブゴールのを管理するところ　-->
       <div class="col-12 border-1 mt-5">
-        <div class="d-flex align-items-center col-12 my-2">
-          <h1 class="ms-5 col-8"><strong>「<%= @goal.text %>」</strong>  を達成するためのサブゴールの一覧</h1>
-          <%= link_to "サブゴールを追加する", new_goal_subgoal_path, class:"btn btn-outline-primary m-3" %>
+        <div class="d-flex align-items-center flex-wrap col-12 my-2 justify-content-end">
+          <div class="d-flex flex-wrap col-lg-9 col-12 align-items-center justify-content-lg-start justify-content-center" id="subgoal-title">
+            <h1 class="me-lg-5 me-md-0">「<%= @goal.text %>」</h1>
+            <h2 class="ms-5 ms-md-0">を達成するためのサブゴールの一覧</h2>
+          </div>
+          <%= link_to "サブゴール追加", new_goal_subgoal_path, id:"newsubgoalbtn",class:"col-lg-2 col-3 btn btn-outline-primary m-3" %>
         </div>
         <% @subgoals.each_with_index do |subgoal,index| %>
-          <div class="stream-item">
-            <div class="d-flex align-items-center">
-              <div class="goal-text my-3 col-12">
-                <%= form_with model: [@goal,subgoal], class:"" do |sub|%>
-                  <div class="d-flex justify-content-center align-items-center flex-wrap">
-                    <h1 class=""><%= index+1 %></h1>
-                    <div class="col-10 mx-4 col-md-7">
-                      <%= sub.text_field :title, class: 'form-control'%>
-                    </div>
-                    <div class="float-md-none float-right">
-                      <%= sub.submit "更新", class:"btn btn-outline-primary"%>
-                      <%= link_to '削除', goal_subgoal_path(@goal, subgoal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-outline-danger m-2' %>
-                      <%= link_to  "管理画面へ", edit_goal_subgoal_path(@goal, subgoal), class:"btn btn-outline-primary",data: {"turbolinks" => false} %>
-                    </div>
+          <div class="d-flex align-items-center">
+            <div class="goal-text my-3 col-12">
+              <%= form_with model: [@goal,subgoal], class:"" do |sub|%>
+                <div class="d-flex flex-wrap justify-content-md-center justify-content-end align-items-center me-sm-5 me-md-0 ">
+                  <h1 class="me-1 me-sm-0"><%= index+1 %></h1>
+                  <div class="col-10 mx-md-4 me-3 col col-lg-6">
+                    <%= sub.text_field :title, class: 'form-control'%>
                   </div>
-                <% end %>
-              </div>
+                  <div class="d-flex justify-content-center align-items-center me-3 me-xl-0">
+                    <%= sub.submit "更新", class:"btn btn-outline-primary"%>
+                    <%= link_to '削除', goal_subgoal_path(@goal, subgoal),method: :delete, data: {confirm: "削除しますか？"},class:'btn btn-outline-danger m-1' %>
+                    <%= link_to  "管理画面へ", edit_goal_subgoal_path(@goal, subgoal), class:"btn btn-outline-primary",data: {"turbolinks" => false} %>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
         <% end %>

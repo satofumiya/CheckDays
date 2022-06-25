@@ -1,3 +1,111 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.home {
+    .goal-index {
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .goal-text {
+        font-size: large;
+    }
+
+    .shortcut {
+        width: 550px;
+        /* 要素の横幅を指定 */
+        white-space: nowrap;
+        /* 横幅のMAXに達しても改行しない */
+        overflow: hidden;
+        /* ハミ出した部分を隠す */
+        text-overflow: ellipsis;
+        /* 「…」と省略 */
+        -webkit-text-overflow: ellipsis;
+        /* Safari */
+        -o-text-overflow: ellipsis;
+        /* Opera */
+    }
+
+    @media screen and (min-width: 1024px) {
+        .goal-text {
+            font-size: 1rem;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .goal-text {
+            font-size: 1.2rem;
+        }
+    }
+
+    @media screen and (min-width: 768px) {
+        h1 {
+            font-size: x-large;
+            font-weight: bold;
+        }
+
+        a.btn-border {
+            border: 2px solid #000;
+            border-radius: 0;
+            background: red;
+            padding: 0.5rem 1rem;
+            -webkit-transform-style: preserve-3d;
+
+            transform-style: preserve-3d;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .shortcut {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .goal-text {
+            width: 300x;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+        }
+
+        a.btn-border {
+            border: 2px solid #000;
+            border-radius: 0;
+            background: red;
+            -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+            font-size: 0.5rem;
+        }
+    }
+
+    //目標ボタン用
+    a.goal-btn {
+        color: white;
+    }
+
+    a.btn-border:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 10px;
+        height: 100%;
+
+        content: '';
+        -webkit-transition: all .3s;
+        transition: all .3s;
+
+        background: white;
+    }
+
+    a.btn-border:hover {
+        color: black;
+        background: white;
+    }
+
+    a.btn-border:hover:before {
+        background: black;
+    }
+}

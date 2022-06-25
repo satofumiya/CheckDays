@@ -13,9 +13,7 @@ body {
 
 }
 
-.goal-text {
-  font-size: large;
-}
+
 
 .header {
   background-color: #ffffff;
@@ -26,30 +24,10 @@ body {
   color: #000000;
 }
 
-.goal-index {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
 .maincontent {
   height: 60%;
 }
 
-/*
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: inherit;
-  box-sizing: inherit;
-}
-
-html {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  font-size: 62.5%;/*rem算出をしやすくするために*/
-
-
-/* ボタンcss基本スタイル  */
 .btn,
 a.btn,
 button.btn {
@@ -75,44 +53,6 @@ button.btn {
 }
 
 /* 立体ボタン用　*/
-a.goal-btn {
-  color: white;
-}
-
-a.btn-border {
-  border: 2px solid #000;
-  border-radius: 0;
-  background: red;
-  padding: 1rem 3rem;
-  -webkit-transform-style: preserve-3d;
-
-  transform-style: preserve-3d;
-}
-
-a.btn-border:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 10px;
-  height: 100%;
-
-  content: '';
-  -webkit-transition: all .3s;
-  transition: all .3s;
-
-  background: white;
-}
-
-a.btn-border:hover {
-  color: black;
-  background: white;
-}
-
-a.btn-border:hover:before {
-  background: black;
-}
-
 /*! destyle.css v3.0.0 | MIT License | https://github.com/nicolas-cusan/destyle.min.css */
 *,
 ::before,
@@ -367,3 +307,5 @@ th {
   text-align: left;
   font-weight: 700
 }
+
+@import "*";

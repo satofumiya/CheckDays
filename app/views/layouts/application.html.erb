@@ -5,17 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <meta name="turbolinks-cache-control" content="no-cache">
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" rel="stylesheet">
   </head>
-
-  <body>
+  <body class='<%= controller.controller_name %>'>
     <% if flash[:notice] %>
       <div class="alert alert-info">
         <%= flash[:notice] %>
@@ -26,40 +23,36 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
-
-
     <div class="header d-flex container-fluid justify-content-between">
       <div class="d-flex justify-content-start">
         <%= image_tag "logo_middle.png", class: "img" %>
       </div>
-
-      <div class="d-flex justify-content-end">  
+      <div class="d-flex justify-content-end">
         <nav class="global-nav d-flex container-fluid align-items-center">
-            <div class="navigation" >
-              <ul class="left-action  d-flex">
+          <div class="navigation" >
+            <ul class="left-action  d-flex">
+              <li class="nav-item mx-1">
+                <%= link_to "ホーム", root_path, class:'link' %>
+              </li>
+              <% if user_signed_in? %>
                 <li class="nav-item mx-1">
-                  <%= link_to "ホーム", root_path, class:'link' %>
+                  <%= link_to "プロフィール編集", edit_user_registration_path, class:'link'%>
                 </li>
-
-                <% if user_signed_in? %>
-                  <li class="nav-item mx-1">
-                    <%= link_to "プロフィール編集", edit_user_registration_path, class:'link'%>
-                  </li>
-                  <li class="nav-item mx-1">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'link' %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
+                <li class="nav-item mx-1">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:'link' %>
+                </li>
+              <% end %>
+            </ul>
+          </div>
         </nav>
       </div>
     </div>
-    <div 
-      <% if content_for?(:body_attributes) %>  
+    <div
+      <% if content_for?(:body_attributes) %>
       <%= yield(:body_attributes) %>
       <% end %>
     >
-    <%= yield %>
+      <%= yield %>
     </div>
   </body>
 </html>
