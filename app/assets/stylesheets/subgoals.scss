@@ -12,6 +12,22 @@
         font-weight: bold;
     }
 
+    #largeTitle {
+        font-size: 2.5vw;
+        font-weight: bold;
+    }
+
+    .subTitle {
+        font-size: 2vw;
+    }
+
+    #todoTitle {
+        font-size: 2vw;
+    }
+
+    #addTodo {
+        font-size: 1vw;
+    }
 
 
     @media screen and (max-width: 1024px) {
@@ -33,6 +49,14 @@
 
         h2 {
             font-size: 0.8rem;
+        }
+
+        .recordedTodo {
+            font-size: 0.7rem;
+        }
+
+        .taskText {
+            font-size: 0.7rem;
         }
     }
 
@@ -57,6 +81,18 @@
         h2 {
             font-size: 0.5rem;
         }
+
+        #taskDone {
+            transform: scale(1.0);
+        }
+
+        .recordedTodo {
+            font-size: 0.7rem;
+            height: 4rem;
+        }
+
+
+
     }
 
     @media screen and (max-width:425px) {
@@ -84,5 +120,10 @@
         .form-control {
             font-size: x-small;
         }
+
+        #addTodo {
+            padding: 0px 0.6px;
+        }
+
     }
 }
