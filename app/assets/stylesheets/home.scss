@@ -12,7 +12,6 @@
     }
 
     .shortcut {
-        width: 550px;
         /* 要素の横幅を指定 */
         white-space: nowrap;
         /* 横幅のMAXに達しても改行しない */
@@ -24,6 +23,7 @@
         /* Safari */
         -o-text-overflow: ellipsis;
         /* Opera */
+        padding: 10px;
     }
 
     .goal-div {
