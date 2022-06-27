@@ -17,9 +17,11 @@
               <% else%>
                 <span class="goal-index col-3"><%= "第#{index+1}目標"%></span>
               <% end %>
-              <span class="goal-text col-12"><%= "・#{safe_join(goal.text.split("\n"), tag(:br))}"%></span>
+              <div class="shortcut">
+                <span class=" goal-text col-12"><%= "・#{safe_join(goal.text.split("\n"), tag(:br))}"%></span>
+              </div>
             </div>
-            <div class="col-md-4 col-lg-3 col-sm-3 col-12 d-flex justify-content-sm-center justify-content-end goal-details">
+            <div class="col-md-4 col-lg-3 col-sm-3 col-12 d-flex justify-content-sm-center justify-content-end align-items-end goal-details">
               <%= link_to  "目標詳細へ", goal_subgoals_path(goal.id), class:"btn btn-outline-primary" %>
             </div>
           </div>
