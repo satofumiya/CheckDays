@@ -5,28 +5,7 @@
 // like app/views/layouts/application.html.erb.
 // All it does is render <div>Hello Vue</div> at the bottom of the page.
 
-import Vue from 'vue'
-import Vuetify from 'vuetify'
-import "vuetify/dist/vuetify.min.css"
-import App from '../app.vue'
-import TurbolinksAdapter from 'vue-turbolinks';
 
-Vue.use(TurbolinksAdapter);
-Vue.use(Vuetify)
-
-const vuetify = new Vuetify();
-
-document.addEventListener('turbolinks:load', () => {
-  if (document.getElementById('vue-app')) {
-  const app = new Vue({
-    vuetify,
-    render: h => h(App)
-  }).$mount()
-  document.body.appendChild(app.$el)
-
-  console.log(app)
-}
-})
 
 
 // The above code uses Vue without the compiler, which means you cannot
