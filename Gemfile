@@ -50,6 +50,7 @@ group :development do
   gem 'rubocop-rails', require: false
   gem 'htmlbeautifier'
   gem 'spring'
+  gem 'rails-erd'
 end
 
 group :test do
