@@ -1,6 +1,6 @@
 # README
 
-* Checkdaysの概要
+* Checkdaysの概要</br>
 
 * 使用技術</br>
 ruby  2.6.9</br>
@@ -9,7 +9,7 @@ mysql 8.0.29 </br>
 vue.js  2.6.14</br>
 vuetify 2.6.6</br>
 
-* 機能要件
+* 機能要件</br>
 ユーザー登録、ログイン機能(devise)</br>
 目標投稿機能</br>
 サブゴール投稿機能</br>
