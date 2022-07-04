@@ -37,10 +37,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
               <ul class="d-flex">
-                <li class="nav-item mx-1">
-                  <%= link_to "目標一覧へ", root_path, class:'link' %>
-                </li>
                 <% if user_signed_in? %>
+                  <li class="nav-item mx-1">
+                    <%= link_to "目標一覧へ", root_path, class:'link' %>
+                  </li>
                   <li class="nav-item mx-1">
                     <%= link_to "プロフィール編集", edit_user_registration_path, class:'link'%>
                   </li>
