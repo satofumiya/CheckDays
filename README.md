@@ -1,6 +1,8 @@
 # README
 
 * Checkdaysの概要</br>
+目標を達成するためのアプリです</br>
+目標を細分化することで、目標達成のためのロードマップを作成できます。</br>
 
 * 使用技術</br>
 ruby  2.6.9</br>
@@ -17,3 +19,7 @@ Todo投稿機能(vue.js,vuetify)</br>
 
 * ER図</br>
 ![erd](https://user-images.githubusercontent.com/51045178/177148356-ae0b0a67-eaf9-4353-aa14-8e334e6755c6.png)
+
+[](インフラ構成図)
+
+* 開発背景
