@@ -3,6 +3,7 @@
 * Checkdaysの概要</br>
 目標を達成するためのアプリです</br>
 目標を細分化することで、目標達成のためのロードマップを作成できます。</br>
+URL https://mysterious-sierra-28820.herokuapp.com/users/sign_in</br>
 
 * 使用技術</br>
 ruby  2.6.9</br>
