@@ -8,17 +8,4 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+![erd](https://user-images.githubusercontent.com/51045178/177148356-ae0b0a67-eaf9-4353-aa14-8e334e6755c6.png)
