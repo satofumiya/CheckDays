@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'home#index'
+  root to: 'goals#index'
 
   resources :goals, except: [:index] do
     resources :subgoals do
@@ -19,6 +19,5 @@ Rails.application.routes.draw do
     passwords: 'users/passwords'
   }
   resources :users, only: [:show]
-
-  get '/users' => 'home#index'
+  get '/users' => 'goals#index'
 end

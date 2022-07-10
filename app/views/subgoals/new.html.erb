@@ -3,7 +3,7 @@
     <%= form_with model: [@goal,@subgoal], class:"d-flex flex-column m-5" do |f|%>
       <%= render 'layouts/error_messages', model: f.object %>
       <div class="d-flex justify-content-end col-10 h-50">
-        <%= f.text_area :title, placeholder: "目標を達成するためのサブゴールは？", class:"col-10 border"%>
+        <%= f.text_field :title, placeholder: "目標を達成するためのサブゴールは？", class:"col-10 border"%>
       </div>
       <div class="d-flex justify-content-end col-10 my-5">
         <%= f.submit "保存する", class:"btn btn-outline-primary"%>

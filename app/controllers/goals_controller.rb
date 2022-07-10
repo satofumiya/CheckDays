@@ -1,4 +1,12 @@
 class GoalsController < ApplicationController
+  def index
+    if user_signed_in?
+      @goals = Goal.where(user_id: current_user.id).order('created_at DESC')
+    else
+      redirect_to new_user_session_path
+    end
+  end
+
   def new
     @goal = Goal.new
   end
@@ -9,7 +17,7 @@ class GoalsController < ApplicationController
       redirect_to root_path
       flash[:notice] = '目標を保存しました'
     else
-      render 'new'
+      render :new
     end
   end
 
