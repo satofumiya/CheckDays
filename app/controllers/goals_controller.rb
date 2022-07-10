@@ -10,7 +10,6 @@ class GoalsController < ApplicationController
       flash[:notice] = '目標を保存しました'
     else
       render 'new'
-      flash[:alert] = '目標を保存できませんでした'
     end
   end
 
