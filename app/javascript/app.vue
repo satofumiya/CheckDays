@@ -38,7 +38,7 @@
           <v-card class="d-flex" v-for="(task, index) in tasks" :key="task.id">
             <v-row cols="10" class="d-flex justify-center flex-wrap">
               <v-col lg="1" class="d-flex align-center justify-center">
-                <v-icon class="mb-1 me-2">fas fa-list</v-icon>
+                <!-- 優先度を変更する時に使うアイコン <v-icon class="mb-1 me-2">fas fa-list</v-icon> -->
                 <v-checkbox
                   @change="taskUpdate(index, task.id, 'done')"
                   v-model="task.done"

@@ -1,13 +1,13 @@
-<div class="vh-100">
-    <div class="d-flex container flex-column bg-white h-75">
-        <%= form_with model: [@goal,@subgoal], class:"d-flex flex-column m-5" do |f|%>
-            <div class="d-flex justify-content-end col-10 h-100">
-                <%= f.text_area :title, placeholder: "目標を達成するためのサブゴールは？", class:"col-10 border"%>
-            </div>
-            <div class="d-flex justify-content-end col-10 my-5">
-                <%= f.submit "保存する", class:"btn btn-outline-primary"%>
-            </div>
-        <% end %>
-    </div>
-    
+<div class="h-100">
+  <div class="d-flex container flex-column bg-white h-75">
+    <%= form_with model: [@goal,@subgoal], class:"d-flex flex-column m-5" do |f|%>
+      <%= render 'layouts/error_messages', model: f.object %>
+      <div class="d-flex justify-content-end col-10 h-50">
+        <%= f.text_area :title, placeholder: "目標を達成するためのサブゴールは？", class:"col-10 border"%>
+      </div>
+      <div class="d-flex justify-content-end col-10 my-5">
+        <%= f.submit "保存する", class:"btn btn-outline-primary"%>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -5,6 +5,11 @@ ja:
     attributes:
       goal:
         text: 目標
+    models:
+      subgoal: サブゴール
+    attributes:
+      subgoal:
+        title: サブゴール
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
