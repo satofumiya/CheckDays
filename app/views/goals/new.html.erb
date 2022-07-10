@@ -1,6 +1,6 @@
 <div class="h-100">
   <div class="d-flex flex-column container bg-white h-75">
-    <%= form_with model: @goal , class:"d-flex flex-column align-items-center m-5" do |f|%>
+    <%= form_with model: @goal , class:"d-flex flex-column m-5" do |f|%>
       <%= render 'layouts/error_messages', model: f.object %>
       <div class="d-flex justify-content-center col-10 h-50">
         <%= f.text_field :text, placeholder: "今の目標は？",class:"col-10 form-control form-control-lg" %>

@@ -2,12 +2,10 @@ ja:
   activerecord:
     models:
       goal: 目標
+      subgoal: サブゴール
     attributes:
       goal:
         text: 目標
-    models:
-      subgoal: サブゴール
-    attributes:
       subgoal:
         title: サブゴール
     errors:
